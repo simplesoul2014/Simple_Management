@@ -20,7 +20,7 @@
        http://www.springframework.org/schema/util/spring-util-3.1.xsd
        ">
 
-	<context:component-scan base-package="com.unioncast.gdtravelhand.module" />
+	<context:component-scan base-package="com.management.module" />
 
 	<bean id="log4jInitialization"
 		class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
@@ -107,7 +107,7 @@
 		<property name="configLocation" value="classpath:hibernate.cfg.xml" />
 		<property name="packagesToScan">
 			<list>
-				<value>com.unioncast.gdtravelhand.pojo.**.*</value>
+				<value>com.management.pojo.**.*</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
@@ -143,7 +143,7 @@
 	<!-- 开启AOP监听 只对当前配置文件有效 -->
 	<aop:aspectj-autoproxy expose-proxy="true" />
 	<aop:config expose-proxy="true">
-		<aop:pointcut expression="execution(* com.unioncast.gdtravelhand.module..service..*.*(..))"
+		<aop:pointcut expression="execution(* com.management.module..service..*.*(..))"
 			id="txPointcut" />
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="txPointcut" />
 	</aop:config>
