@@ -31,31 +31,19 @@
 		</plugins>
 	</build>
 
-
-  <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <scope>test</scope>
-    </dependency>
-  </dependencies>
-	  <repositories>
-		  <repository>
-			   <snapshots>
-			    <enabled>true</enabled>
-			   </snapshots>
-			  	 <id>public</id>
-			 	  <name>Public Repositories</name>
-			   <url>http://192.168.1.24:8081/nexus/content/repositories/thirdparty/</url>
-		  </repository>
-	 </repositories>
-	 <pluginRepositories>
-		  <pluginRepository>
-			   <id>public</id>
-			   <name>Public Repositories</name>
-			   <url>http://192.168.1.24:8081/nexus/content/repositories/thirdparty/</url>
-			  </pluginRepository>
-	 </pluginRepositories>
+	<repositories>
+		<repository>
+			<id>108repository</id>
+			<name>108repository</name>
+ 			<url>http://192.168.1.108:8999/nexus/content/groups/public/</url>
+	
+		</repository>
+			<repository>
+			<id>108thirdparty</id>
+			<name>108thirdparty</name>
+ 			<url>http://192.168.1.108:8999/nexus/content/repositories/thirdparty/</url>
+		</repository>
+		
+	</repositories>
   
 </project>
