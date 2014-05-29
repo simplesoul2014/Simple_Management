@@ -49,5 +49,6 @@
 	<modules>
 		<module>management_bean</module>
 		<module>management_dao</module>
+		<module>management_web</module>
 	</modules>
 </project>
