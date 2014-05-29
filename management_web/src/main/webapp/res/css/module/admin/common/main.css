@@ -1,0 +1,62 @@
+.TabIcons{
+	background-image:url(../../../../../res/images/common/icons/tab.gif) !important;
+}
+
+.search{
+	background-image:url(../../../../../res/images/common/icons/search.gif) !important;
+}
+
+.add{
+	background-image:url(../../../../../res/images/common/icons/add.gif) !important;
+}
+
+.look{
+	background-image:url(../../../../../res/images/common/icons/view.gif) !important;
+}
+
+.edit_icon{
+	background-image:url(../../../../../res/images/common/icons/edit.gif) !important;
+}
+
+.del{
+	background-image:url(../../../../../res/images/common/icons/del.gif) !important;
+}
+
+.help{
+	background-image:url(../../../../../res/images/common/icons/help.gif) !important;
+}
+
+.preview{
+	background-image:url(../../../../../res/images/common/icons/preview.gif) !important;
+}
+
+.cdel{
+	background-image:url(../../../../../res/images/common/icons/cdel.png) !important;
+}
+
+.form{
+	background-image:url(../../../../../res/images/common/icons/form.png) !important;
+}
+
+.save{
+	background-image:url(../../../../../res/images/common/icons/save.gif) !important;
+}
+
+.exit{
+	background-image:url(../../../../../res/images/common/icons/exit.gif) !important;
+}
+
+.reset{
+	background-image:url(../../../../../res/images/common/icons/preview.gif) !important;
+}
+
+.refresh{
+	background-image:url(../../../../../res/images/common/icons/refresh.gif) !important;
+}
+
+.close{
+	background-image:url(../../../../../res/images/common/icons/close.gif) !important;
+}
+.x-grid-panel{
+	border-right:1px solid #99BBE8;
+}	

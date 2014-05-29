@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration PUBLIC "-//LOGGER" "http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/xml/doc-files/log4j.dtd">
+
+<log4j:configuration>
+
+	<!-- ALL LOG -->
+	<appender name="all" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="${UNIONCAST.root2}/rw/logs/all.log" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				value="%d{yyyy-MM-dd HH:mm:ss,SSSS} [%-5p] {%c:%L} %n%m%n%n" />
+		</layout>
+	</appender>
+
+	<!-- ERROR LOG -->
+	<appender name="error" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="${UNIONCAST.root2}/rw/logs/error.log" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="Date:%d{yyyy-MM-dd HH:mm:ss,SSSS}%n%m%n%n" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMax" value="ERROR" />
+			<param name="LevelMin" value="ERROR" />
+		</filter>
+	</appender>
+
+	<!-- INFO LOG -->
+	<appender name="info" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="${UNIONCAST.root2}/rw/logs/info.log" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="Date:%d{yyyy-MM-dd HH:mm:ss,SSSS} %m%n" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMax" value="INFO" />
+			<param name="LevelMin" value="INFO" />
+		</filter>
+	</appender>
+	
+	<appender name="sql" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="${UNIONCAST.root2}/rw/logs/sql.log" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="Date:%d{yyyy-MM-dd HH:mm:ss,SSSS} %m%n" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMax" value="debug" />
+			<param name="LevelMin" value="debug" />
+		</filter>
+	</appender>	
+	
+	<logger name="org.hibernate.SQL" additivity="false"> 
+		<level value="debug" /> 
+		<appender-ref ref="sql" />
+	</logger>	
+	<logger name="org.hibernate.type" additivity="false">
+		<level value="debug" /> 
+		<appender-ref ref="sql" />
+	</logger>	
+
+	<root>
+		<priority value="INFO" />
+		<appender-ref ref="all" />
+		<appender-ref ref="error" />
+		<appender-ref ref="info" />
+	</root>
+
+</log4j:configuration> 
