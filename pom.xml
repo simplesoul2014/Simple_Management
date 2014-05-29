@@ -45,5 +45,9 @@
 		</repository>
 		
 	</repositories>
-  
+
+	<modules>
+		<module>management_bean</module>
+		<module>management_dao</module>
+	</modules>
 </project>
