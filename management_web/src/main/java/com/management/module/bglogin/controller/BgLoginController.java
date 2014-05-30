@@ -28,6 +28,13 @@ public class BgLoginController
 	@Resource(name = "BgUserService")
 	private BgUserService m_oBgUserService;
 
+  
+	@RequestMapping(value = "/index.do")
+	public String getIndex(HttpServletRequest oRequest)
+	{
+		return "redirect:/module/bglogin/index.do";
+	}
+	
 	/**
 	 * 获取后台用户登录主入口
 	 * 
@@ -58,9 +65,9 @@ public class BgLoginController
 		BgCpUser oBgUser = m_oBgUserService.getBgCpUser(sAccount, sPassword);
 		if (oBgUser != null)
 		{
-			oRequest.getSession().setAttribute("GlobalSessionBgUserId",
-					oBgUser.getUserId());
-		}
+			oRequest.getSession().setAttribute("GlobalSessionBgUserId",oBgUser.getUserId());
+			oRequest.getSession().setAttribute("GlobalSessionBgUserName",oBgUser.getUserName());
+ 		}
 		oFormResponse
 				.setSuccess(oBgUser != null ? Boolean.TRUE : Boolean.FALSE);
 		oFormResponse.setMsg(oBgUser != null ? "后台用户登录成功"
@@ -74,11 +81,11 @@ public class BgLoginController
 	public FormResponse logout(HttpServletRequest oRequest)
 	{
 		FormResponse oFormResponse = new FormResponse();
-		Object oBgUserId = oRequest.getSession().getAttribute(
-				"GlobalSessionBgUserId");
+		Object oBgUserId = oRequest.getSession().getAttribute("GlobalSessionBgUserId");
 		if (oBgUserId != null)
 		{
 			oRequest.getSession().removeAttribute("GlobalSessionBgUserId");
+			oRequest.getSession().removeAttribute("GlobalSessionBgUserName");
 		}
 
 		oFormResponse.setSuccess(Boolean.TRUE);

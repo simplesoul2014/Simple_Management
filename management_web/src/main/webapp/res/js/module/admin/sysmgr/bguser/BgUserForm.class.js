@@ -1,6 +1,18 @@
 var m_nWidth = 650;
 var m_nHeight = 460;
 
+function checksize(value)
+{  
+
+    if(value.length>0&&value.length<100)
+    {  
+        return true;  
+    }else{  
+        return '请输入输入字数不要超过100字！';  
+    }  
+      
+} 
+
 function getBgUserForm() 
 {
 	return new Ext.FormPanel( {
@@ -20,7 +32,7 @@ function getBgUserForm()
 				layout : 'form',
 				items : [
 				{
-					xtype : 'textfield',
+					xtype : 'numberfield',
 					fieldLabel : '<font color="red">*</font>用户帐号',
 					name : 'sAccount',
 					tabIndex:1,
@@ -46,7 +58,7 @@ function getBgUserForm()
 					name : 'sQQ',
 					anchor : '95%'
 				}, {
-					xtype : 'textfield',
+					xtype : 'numberfield',
 					fieldLabel : '用户类型',
 					name : 'nUserType',
 					anchor : '95%'
@@ -126,6 +138,10 @@ function getBgUserForm()
 		}, {
 			xtype : 'htmleditor',
 			fieldLabel : '用户简介',
+			validateOnBlur : true,
+			validator : checksize, 
+			invalidText : '请输入用户简介,但不能超过100字！',
+			blankText : '请输入用户简介,但不能超过100字！',
 			name : 'sBrief',
 			enableFont: false,
 			height : 130,
@@ -157,8 +173,7 @@ Ext.AddBgUserWindow = function()
 				var oForm = me.items.get(0).getForm();
 				if (oForm.isValid()) 
 				{
-					alert(oForm.findField('sBgRole').getRealValue());
-					oForm.submit( {
+ 					oForm.submit( {
 						method : 'post',
 						url : 'addBgUser.do',
 						params : {

@@ -94,6 +94,9 @@ public class BgUserController
 	@RequestMapping(value = "/module/admin/sysmgr/addBgUser.do", method = RequestMethod.POST)
 	public String addBgUser(HttpServletRequest oRequest)
 	{
+		
+		String loginUserid = (String)oRequest.getSession().getAttribute("GlobalSessionBgUserId");
+	    BgCpUser loginbguser = m_oBgUserService.getBgUser(loginUserid);
 		//接收参数
 		String sUserId = StrUtil.toStr(oRequest.getParameter("sAccount"), "");
 		String sPassword = StrUtil.toStr(oRequest.getParameter("sPassword"), "");
@@ -122,7 +125,7 @@ public class BgUserController
 		if(oBgUser == null)
 		{
 			//增加用户
-			int nTotal = m_oBgUserService.addBgUser(sUserId, sPassword, sName, nBgDeptId, sDeptName, sBgRoleId, sBgRole, sBgPostId, sBgPost, nSex, sQQ, sEmail, nUserType, sTel, sFax, sZip, sAddress, sBrief);
+			int nTotal = m_oBgUserService.addBgUser(loginbguser,sUserId, sPassword, sName, nBgDeptId, sDeptName, sBgRoleId, sBgRole, sBgPostId, sBgPost, nSex, sQQ, sEmail, nUserType, sTel, sFax, sZip, sAddress, sBrief);
 			oFormResponse.setSuccess(nTotal > 0 ? Boolean.TRUE : Boolean.FALSE);
 			oFormResponse.setMsg(nTotal > 0 ? "后台用户增加成功" : "后台用户增加失败");			
 		}else

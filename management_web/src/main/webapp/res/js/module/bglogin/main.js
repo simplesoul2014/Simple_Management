@@ -11,7 +11,7 @@ Ext.onReady(function(){
 		closable:false,
 		collapsible:true,
 		iconCls:'lock',
-		title:'粤旅通后台管理系统',
+		title:'信息后台管理系统',
 		plain: true,
 		items:[new Ext.FormPanel({
 			id:'LoginForm',
@@ -26,7 +26,7 @@ Ext.onReady(function(){
 	            defaults: {width: 250},
 	            defaultType: 'textfield',
 	            items :[{
-	                    fieldLabel: '登录帐号',
+	                    fieldLabel: '登录姓名',
 	                    id:'sAccount',
 	                    name: 'sAccount',
 	                    enableKeyEvents: true,

@@ -1,5 +1,6 @@
 package com.management.module.admin.sysmgr.service;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -158,7 +159,8 @@ public class BgUserService
 	 * @return int
 	 */
 	public int addBgUser(
-		 String sUserId
+		BgCpUser loginuser	
+		 ,String sUserId
 		,String sPassword
 		,String sName
 		,Integer nBgDeptId
@@ -183,6 +185,9 @@ public class BgUserService
 		oBgUser.setUserId(sUserId);
 		oBgUser.setPassword(AlgorithmUitl.md5(sPassword));
 		oBgUser.setUserName(sName);
+		oBgUser.setCreatTime(new Date());
+		oBgUser.setUserCreator(loginuser.getUserName());
+		oBgUser.setStatus(0);
 		//oBgUser.setBgDeptId(nBgDeptId);
 		//oBgUser.setDeptName(sDeptName);
 		int nRoleId=Integer.parseInt(sBgRoleId);

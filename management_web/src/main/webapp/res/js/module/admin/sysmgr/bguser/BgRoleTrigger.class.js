@@ -29,24 +29,33 @@ Ext.BgRoleTopToolbar = function(oGrid)
 	            {
 	            	var aRecord = oGrid.getSelectionModel().getSelections();
 	            	var aRoleId = [];
-	            	var aRoleName = [];
-					for(var nKey in aRecord)
+	            	var aRoleName = [];	     
+	            	if(aRecord.length > 1)
 					{
-						if(aRecord[nKey].data != undefined)
+						Ext.MessageBox.alert('出错提示', '请为用户选择唯一角色');
+					 
+					}else
+					{
+						for(var nKey in aRecord)
 						{
-							aRoleId.push(aRecord[nKey].data.roleId);
-							aRoleName.push(aRecord[nKey].data.name);
+							if(aRecord[nKey].data != undefined)
+							{
+								aRoleId.push(aRecord[nKey].data.roleId);
+								aRoleName.push(aRecord[nKey].data.name);
+							}
 						}
+		    			if(aRoleId.length > 0)
+		    			{
+		    				oGrid.trigger.setRealValue(aRoleId.join(','));
+		    				oGrid.trigger.setValue(aRoleName.join(','));
+		    				oGrid.win.hide();
+		    			}else
+		    			{
+		    				Ext.MessageBox.alert('出错提示', '请选择用户角色！');
+		    			}
+						
 					}
-	    			if(aRoleId.length > 0)
-	    			{
-	    				oGrid.trigger.setRealValue(aRoleId.join(','));
-	    				oGrid.trigger.setValue(aRoleName.join(','));
-	    				oGrid.win.hide();
-	    			}else
-	    			{
-	    				Ext.MessageBox.alert('出错提示', '请选择用户角色！');
-	    			}
+					
     			}
         	}
         ]

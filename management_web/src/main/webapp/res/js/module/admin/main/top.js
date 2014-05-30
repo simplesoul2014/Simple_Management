@@ -1,6 +1,6 @@
 var aTopNav = [
     '<div style="float:left;padding-left:5px;padding-top:6px">'
-    ,'<div style="padding-left:5px;padding-top:5px;color:#fff;font-size:30px;font-weight:bolder">粤旅通后台管理系统</div>'
+    ,'<div style="padding-left:5px;padding-top:5px;color:#fff;font-size:30px;font-weight:bolder">信息管理系统</div>'
     ,'</div><div style="float:right;padding-right:15px;padding-top:8px;font-size:9pt">'
     ,'<img src="../../../res/images/common/icons/run.gif"> 目前登录人：<span id="admin_name"></span>'
     ,' <img src="../../../res/images/common/icons/exit1.gif"> <a href="javascript:void(Exit())">退出</a>'

@@ -39,8 +39,8 @@ Ext.BgUser = function()
         			return store.reader.jsonData.start + rowIndex + 1;
         		}
         	 }
-            ,{header: '用户帐号', dataIndex: 'userId', width: 140}
-            ,{header: '用户姓名', dataIndex: 'userName', id:'name'}
+            ,{header: '用户帐号', dataIndex: 'userId', width: 140,sortable: true}
+            ,{header: '用户姓名', dataIndex: 'userName', id:'name',sortable: true}
            
             ,{header: '是否有效', dataIndex: 'status', width: 80
             	, renderer : function(value){
@@ -55,7 +55,7 @@ Ext.BgUser = function()
             		}
             	}
             }
-            ,{header: '创建人', dataIndex: 'userCreator', width: 140}
+            ,{header: '创建人', dataIndex: 'userCreator', width: 140,sortable: true}
             ,{header: '录入时间', dataIndex: 'creatTime', width: 140, sortable: true, renderer : Ext.util.Format.dateRenderer('Y-m-d H:i:s')}
         ],
         stripeRows: true,
