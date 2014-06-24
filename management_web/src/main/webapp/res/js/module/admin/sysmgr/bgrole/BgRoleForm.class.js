@@ -48,6 +48,7 @@ Ext.AddBgRoleWindow = function()
 								 	}));
 								 	oParentNode.expand();
 								 	me.hide(oParentNode.getUI().getEl());
+									Ext.Msg.alert('新增用户角色', '新增角色成功!'); 
 						        }else
 						        {
 						        	Ext.Msg.alert('出错提示', obj.msg); 
@@ -121,6 +122,7 @@ Ext.EditBgRoleWindow = function()
 						        {
 						        	oNode.setText(oValue.sName);
 								 	me.hide(oNode.getUI().getEl());
+									Ext.Msg.alert('编辑用户角色', '编辑角色成功!'); 								 	
 						        }else
 						        {
 						        	Ext.Msg.alert('出错提示', obj.msg); 

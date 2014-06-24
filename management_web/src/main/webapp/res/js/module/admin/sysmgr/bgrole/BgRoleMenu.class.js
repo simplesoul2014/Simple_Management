@@ -52,7 +52,7 @@ Ext.BgRoleMenu = function()
 		 		iconCls: 'del',
 		 		handler: function(oItem, oEvent)
 		 		{
-			 		Ext.MessageBox.confirm('出错提示', '真的要删除此角色吗？', function(buttonId, text, opt)
+			 		Ext.MessageBox.confirm('提示信息', '真的要删除此角色吗？', function(buttonId, text, opt)
 			 		{
     					if(buttonId == 'yes')
     					{
